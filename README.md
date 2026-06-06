@@ -76,8 +76,8 @@ RevenueCatのプライバシーポリシー：[https://www.revenuecat.com/privac
 
 プライバシーポリシーに関するご質問・ご意見は下記までお問い合わせください。
 
-**メールアドレス：** ai0tech0site+support@gmail.com
+**メールアドレス：** support@passmate.jp
 
 ---
 
-*最終更新日：2026年5月16日*
+*最終更新日：2026年6月7日*
