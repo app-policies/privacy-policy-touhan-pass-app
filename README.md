@@ -8,31 +8,69 @@
 
 本アプリは以下の情報を収集・利用します。
 
-### アプリ内で収集する情報
-- **学習データ**：問題への回答履歴、正誤記録、苦手フラグ（ブックマーク）
-- **設定情報**：文字サイズ設定、受験予定の試験ブロック
+### アプリ内で保存する情報
 
-これらの情報はすべてお使いの端末内（ローカルデータベース）にのみ保存され、外部サーバーへ送信されることはありません。
+- **学習データ**：問題への回答履歴、正誤記録、苦手フラグ（ブックマーク）
+- **設定情報**：文字サイズ設定、学習設定
+
+これらの情報はお使いの端末内（ローカルデータベース）に保存されます。
+
+### Firebase Analyticsで送信する情報
+
+本アプリは、利用状況を集計し、学習体験と品質改善に役立てるため、Google LLCが提供するFirebase Analyticsを利用します。
+
+Firebase Analyticsでは、以下のようなイベントおよび集計用パラメータを送信します。
+
+- アプリ起動
+- 学習開始、回答、学習完了
+- 模試開始、模試完了
+- プレミアム案内画面の表示
+- 購入開始、購入完了
+- レビュー依頼候補
+- アプリのバージョン、ビルド番号
+- 学習モード、章カテゴリ、出題元フィルタ
+- スコア帯、問題数、プレミアム導線、レビュー候補トリガー
+
+Firebase Analyticsへ送信しない情報は以下のとおりです。
+
+- 問題本文
+- 選択肢本文
+- 解説本文
+- 自由入力欄の内容
+- 氏名、メールアドレス
+- 個別相談内容
+- question_id
+- RevenueCatのユーザーID
+- 生のApple取引ID
+- 広告ユニット等の識別子
+- 課金SDKの公開キー
+- 出題文を復元できる情報
+
+Firebase AnalyticsはIDFAを使用しない構成で導入しています。本アプリはFirebase Auth、Firestore、Realtime Database、Cloud Functions、Storage、BigQuery export、Crashlytics、Remote Config、App Check、Cloud Messaging、AI Logicを使用していません。
+
+Firebaseのプライバシー情報：
+[https://firebase.google.com/support/privacy](https://firebase.google.com/support/privacy)
+
+Googleのプライバシーポリシー：
+[https://policies.google.com/privacy](https://policies.google.com/privacy)
 
 ### 第三者サービスが収集する情報
 
 本アプリは以下の第三者サービスを利用しており、各サービスのプライバシーポリシーに基づき情報が収集される場合があります。
 
 #### Google AdMob（広告配信）
-無料ユーザー向けに広告を表示するため、Google AdMobを利用しています。AdMobは広告配信のために以下の情報を収集する場合があります。
 
-- デバイス識別情報（広告ID等）
-- IPアドレス
-- アプリの使用状況
+無料ユーザー向けに広告を表示するため、Google AdMobを利用しています。AdMobは広告配信のためにデバイス情報、IPアドレス、アプリの使用状況等を処理する場合があります。
 
-AdMobのプライバシーポリシー：[https://policies.google.com/privacy](https://policies.google.com/privacy)
-
-なお、本アプリではパーソナライズ広告を無効化し、非パーソナライズ広告のみを配信する設定としています。
+AdMobのプライバシーポリシー：
+[https://policies.google.com/privacy](https://policies.google.com/privacy)
 
 #### RevenueCat（課金管理）
+
 アプリ内課金の管理にRevenueCatを利用しています。RevenueCatは購入状況の管理のために匿名のユーザーIDと購入履歴を処理します。
 
-RevenueCatのプライバシーポリシー：[https://www.revenuecat.com/privacy](https://www.revenuecat.com/privacy)
+RevenueCatのプライバシーポリシー：
+[https://www.revenuecat.com/privacy](https://www.revenuecat.com/privacy)
 
 ---
 
@@ -40,9 +78,10 @@ RevenueCatのプライバシーポリシー：[https://www.revenuecat.com/privac
 
 収集した情報は以下の目的にのみ利用します。
 
-- 学習進捗の管理・表示（正答率、苦手章の分析、5 章別正答率バー）
-- 受験予定の試験ブロックに応じた試験日カウントダウン表示
+- 学習進捗の管理・表示
+- 5章別正答率や弱点傾向の表示
 - アプリ設定の保持
+- 利用状況の集計による学習体験と品質の改善
 - 広告の配信（無料ユーザーのみ）
 - アプリ内課金の管理
 
@@ -56,7 +95,7 @@ RevenueCatのプライバシーポリシー：[https://www.revenuecat.com/privac
 
 ## 4. 情報の保管と削除
 
-学習データはお使いの端末内にのみ保存されます。アプリ内の「設定」→「学習データをリセット」から、回答履歴および苦手フラグをいつでも削除できます。アプリをアンインストールすることで、すべてのローカルデータが削除されます。
+学習データはお使いの端末内に保存されます。アプリ内の「設定」→「学習データをリセット」から、回答履歴および苦手フラグをいつでも削除できます。アプリをアンインストールすることで、端末内のローカルデータは削除されます。
 
 ---
 
@@ -80,4 +119,6 @@ RevenueCatのプライバシーポリシー：[https://www.revenuecat.com/privac
 
 ---
 
-*最終更新日：2026年6月7日*
+*バージョン：3.0.0*
+
+*最終更新日：2026年6月20日*
